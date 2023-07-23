@@ -1,0 +1,91 @@
+body{
+	margin: 0;
+	padding: 0;
+}
+.container{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	min-height: 100vh;
+	background-color: #000;
+	flex-direction: column;
+	filter: contrast(30);/*[2]再加對比度提高*/
+	/*這樣就可以將模糊的邊框透過對比度的提升,重新畫出一個實邊,而達到融合到一起的效果*/
+	
+	/*另外調色*/
+	/* background-color: rgb(109 129 154 / 94%);
+	filter: contrast(30) grayscale(0.3); */
+    /*另外調色2 */
+	/*-webkit-filter: contrast(20) sepia(50%) saturate(68%) hue-rotate(
+	0deg
+	);*/
+
+
+}
+.drop{
+	width: 100px;
+	height: 100px;
+	background-color: #fff;
+	border-radius: 50%;
+	position: absolute;
+	filter: blur(20px);/*[1]模糊設定*/
+	opacity: 0;
+	animation:  2.5s drop linear infinite;
+
+}
+.drop:nth-child(2){
+	/* transform: translateY(-80px); */
+	animation-delay: .5s;
+}
+.drop:nth-child(3){
+	/* transform: translateY(-140px); */
+	animation-delay: .7s;
+}
+
+.collection{
+
+	width: 100px;
+	height: 100px;
+	background-color: #FFF;
+	border-radius: 50%;
+	filter: blur(20px);
+	animation: 2s collection linear infinite;
+}
+span{
+	position: absolute;
+	font-family: Arial;
+	font-size: 25px;
+	font-weight: bold;
+
+}
+
+@keyframes drop{
+	0%{
+		transform: scale(.6) translateY(-500%);
+		opacity: 0;
+	}
+	50%{
+		transform: scale(.4) translateY(-80%);
+		opacity: 1;
+	}
+	100%{
+		transform: scale(.3) translateY(0px);
+		opacity: 1;
+	}
+}
+
+@keyframes collection{
+	0%{
+		transform:scale(1) rotate(0deg);
+	}
+	50%{
+
+		transform: scale(1.2) rotate(180deg);
+		width: 90px;
+		border-top-left-radius: 45%;
+		border-bottom-left-radius: 45%;
+	}
+	100%{
+		transform:scale(1) rotate(360deg);
+	}
+}
